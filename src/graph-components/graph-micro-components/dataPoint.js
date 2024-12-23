@@ -1,45 +1,34 @@
 import React, { useState } from "react";
 import "./dataPoint.css";
+import GraphDialogBox from "./graphDialogBox";
 
 export const DataPoint = (props) => {
     const { data } = props;
     const [hover, setHover] = useState(false);
 
     const dataPoint = {
-        width: "3px",
-        height: "3px",
+        width: "5px",
+        height: "5px",
         backgroundColor: data.color,
         color: "transparent",
-        zIndex : 0
+        zIndex : -1,
+        overflow : "hidden"
     }
 
-    const modalDailog = {
-        height : "150px",
-        width : "150px",
-        position : "absolute",
-        zIndex : 1,
-        backgroundColor : "white",
-        borderRadius : "25px",
-        padding : "10px",
-        boxShadow : "2px 2px lightblue",
-        fontSize : "8px"
-    }
+    
 
     const block = {
-        width: "3px",
-        height: "3px",
-        width : "100vw",
-        // display : "flex",
-        position : "relative"
+        backgroundColor : "blue",
+        marginTop : "auto"
     }
 
-    return <div>
+    return <div style={block}>
         <div className="dataPoint" style={dataPoint}
             onPointerEnter={() => setHover(true)}
             onPointerLeave={() => setHover(false)}>
             .
         </div>
-        {hover && <div style={modalDailog}>{data.xAxis}, {data.yAxis}, {data.color}, {data.desc}</div> }
+        {hover && <GraphDialogBox value={data}/> }
     </div>
 }
 

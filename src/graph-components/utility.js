@@ -64,13 +64,13 @@ export const prepareDatapointMatrix = (xFrame, yFrame, dataPoint)=>{
 
 export const randomTest = ()=>{
     let dataPoints = []
-    for(let i = 0; i<2000; i++){
+    for(let i = 0; i<3000; i++){
     let point = {
-        xAxis : Math.random()*i*7,
-        yAxis : Math.random()*i*9,
+        xAxis : i*2*Math.random(),
+        yAxis : i*3*Math.random(),
         color : getRandomColor(),
-        image : "na",
-        desc : "test Data..."
+        image : "https://as2.ftcdn.net/v2/jpg/02/44/61/19/1000_F_244611927_yrh0ZIYwOGTDurVnCMAt7Cq8DR4sBkB0.jpg",
+        desc : "test Data : random burger value (|}) ..."
       }
       dataPoints.push(point);
     }

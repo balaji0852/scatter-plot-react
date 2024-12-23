@@ -6,17 +6,17 @@ const ScatterPlotXAxisFrame = (props) =>{
     const xframe = {
         display : "flex",
         flexDirection : "row",
+        padding : 0,
         flexWrap: "nowrap",
+        height : "100%",
         // width:"90%",
-        // height : "1px",
         // width : "1px",
-        borderColor : "red",
         justifyContent : "space-evenly"
     };
 
     const dataSpaceStyling = {
-        width : "2px",
-        height : "2px",
+        width : "100%",
+        height : "100%",
     }
 
 return <div style={xframe}>
