@@ -13,7 +13,7 @@ const YAxisLabel = (props) => {
 
 
     function prepareLabel(value) {
-        let array = [...Array(10).keys()].map((_, index) => index == 0 ? value : (index+1) * value);
+        let array = [...Array(10).keys()].map((_, index) => index === 0 ? value : (index+1) * value);
         setLabel(array);
     }
 
@@ -28,11 +28,6 @@ const YAxisLabel = (props) => {
         flexDirection: "column",
         height: "100%",
         justifyContent : "space-evenly"
-    }
-
-    const line = {
-        backgroundColor: "black",
-        color: "transparent"
     }
 
     const labelTextStyling = {
