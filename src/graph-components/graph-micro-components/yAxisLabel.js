@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const YAxisLabel = (props) => {
 
-    const [value, setValue] = useState(0);
     const [label, setLabel] = useState([]);
     useEffect(() => {
         let YMaxLabelValue = props.YMaxLabelValue;
