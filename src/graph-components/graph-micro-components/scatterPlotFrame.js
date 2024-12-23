@@ -16,7 +16,6 @@ const ScatterPlotFrame = (props) => {
   };
 
   //i ---> y axis , j -----. x axis
-  console.log(dataPoints)
   return (
     <div style={frame}>
       {/* <div>x axis :{i} ,y axis :{j}</div> */}

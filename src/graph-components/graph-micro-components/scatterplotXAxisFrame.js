@@ -22,8 +22,8 @@ const ScatterPlotXAxisFrame = (props) =>{
 return <div style={xframe}>
         {
             Array.from({length : j}, (_, index) =>
-                matrix[i][index]!=0?
-            <DataPoint style={dataSpaceStyling} key={index} data={matrix[i][index]}/>
+                matrix[i][index]!==0?
+            <DataPoint style={dataSpaceStyling} key={index===0?1:index*Math.random()} data={matrix[i][index]}/>
             :<div key={2*index} style={dataSpaceStyling}></div>
             )
         }

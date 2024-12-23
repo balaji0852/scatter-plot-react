@@ -2,25 +2,18 @@ import React, { useEffect, useState } from "react";
 
 const XAxisLabel = (props) => {
 
-    const [value, setValue] = useState(0);
     const [label, setLabel] = useState([]);
     useEffect(() => {
         let XMaxLabelValue = props.XMaxLabelValue;
-        console.log("x",props.XMaxLabelValue)
-        if (props.XMaxLabelValue > 1) {
-            let scale = props.XScale;
-            let localVal = Math.ceil(props.XMaxLabelValue / 10);
-            setValue(localVal);
-            console.log("xvalue %d", localVal);
+        if (XMaxLabelValue > 1) {
+            let localVal = Math.ceil(XMaxLabelValue / 10);
             prepareLabel(localVal);
         }
     }, [props])
 
 
     function prepareLabel(value) {
-        console.log(value);
-        let array = [...Array(10).keys()].map((_, index) => index == 0 ? value : (index+1) * value);
-        console.log("label", array);
+        let array = [...Array(10).keys()].map((_, index) => index === 0 ? value : (index+1) * value);
         setLabel(array);
     }
 
@@ -37,11 +30,6 @@ const XAxisLabel = (props) => {
         marginRight : "2px",
     }
 
-    const line = {
-        backgroundColor: "black",
-        color: "transparent",
-    }
-
     const labelTextStyling = {
         display: "flex",
         flexDirection: "row",
@@ -55,7 +43,7 @@ const XAxisLabel = (props) => {
     return <div style={AxisStyling}>
         {/* <div style={line}>{value}</div> */}
         <div style={labelStyling}>{
-            label.map((item) => <div style={labelTextStyling}>{item}</div>
+            label.map((item,index) => <div key={index} style={labelTextStyling}>{item}</div>
             )
         }</div>
     </div>

@@ -1,7 +1,6 @@
 export const dataPointsPreprocessor = (dataPoints)=>{
     let x = Math.max(...dataPoints.map(item => item.xAxis));
     let y = Math.max(...dataPoints.map(item => item.yAxis));
-    console.log(x,y)
     return {maxXValue : x, maxYValue : y};
 }
 
@@ -45,19 +44,13 @@ export const graphCategorizer = (maxValue)=>{
 let Array2D = (r,c) => [...Array(r)].map(_=>Array(c).fill(0));
 
 export const prepareDatapointMatrix = (xFrame, yFrame, dataPoint)=>{
-    console.log("x-size"+xFrame.numberOfFrames)
-    console.log("y axis"+yFrame.numberOfFrames)
-    console.log("scale",xFrame,yFrame)
     let matrix = Array2D(xFrame.numberOfFrames,yFrame.numberOfFrames);
-    console.log("matrix", matrix)
     dataPoint.forEach((data)=>{
         let scaledDown = data;
         scaledDown["scaledXAxis"] = Math.ceil(data.xAxis/yFrame.scale);
         scaledDown["scaledYAxis"] = Math.ceil(data.yAxis/xFrame.scale);
-        console.log(" feed",scaledDown)
         matrix[scaledDown.scaledYAxis][scaledDown.scaledXAxis] = data;
     });
-    console.log("final m ",matrix)
     return matrix;
 }
 

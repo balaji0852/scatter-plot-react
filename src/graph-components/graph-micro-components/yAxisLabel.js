@@ -6,21 +6,15 @@ const YAxisLabel = (props) => {
     const [label, setLabel] = useState([]);
     useEffect(() => {
         let YMaxLabelValue = props.YMaxLabelValue;
-        console.log(props.YMaxLabelValue)
-        if (props.YMaxLabelValue > 1) {
-            let scale = props.YScale;
-            let localVal = Math.ceil(props.YMaxLabelValue / 10);
-            setValue(localVal);
-            console.log("value %d", localVal);
+        if (YMaxLabelValue > 1) {
+            let localVal = Math.ceil(YMaxLabelValue / 10);
             prepareLabel(localVal);
         }
     }, [props])
 
 
     function prepareLabel(value) {
-        console.log(value);
         let array = [...Array(10).keys()].map((_, index) => index == 0 ? value : (index+1) * value);
-        console.log("label", array);
         setLabel(array);
     }
 
@@ -54,7 +48,7 @@ const YAxisLabel = (props) => {
     return <div style={AxisStyling}>
         {/* <div style={line}>{value}</div> */}
         <div style={labelStyling}>{
-            label.map((item) => <div style={labelTextStyling}>{item}</div>
+            label.map((item, index) => <div key={index} style={labelTextStyling}>{item}</div>
             ).reverse()
         }</div>
     </div>

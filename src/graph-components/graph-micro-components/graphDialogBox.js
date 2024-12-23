@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../../logo.svg"
 const GraphDialogBox = (props) => {
 
     const {value} = props;
@@ -36,7 +35,7 @@ const GraphDialogBox = (props) => {
    
 
     return <div style={modalDailog}>
-        <img src={value.image} style={imageStyling}/>
+        <img src={value.image} style={imageStyling} alt="graphImage"/>
         <div style={dataPointInfoStyle}>x: {value.xAxis} ,y: {value.yAxis}</div>
         <div style={description}>{value.desc}</div>
     </div>
