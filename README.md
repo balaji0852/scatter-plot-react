@@ -22,7 +22,7 @@ Here’s a simple React.js component that serves as a scatter plot and takes a J
 }
 
 
-Inorder use the component just clone this repo and copy the "graph-components" folder into your react project.
+Inorder to use the component just clone this repo and copy the "graph-components" folder to your react project.
 
 Later import and use the "ScatterPlot" component within your desired component present in your react project, like shown below :
  
